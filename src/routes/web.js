@@ -1,15 +1,13 @@
 const siteRouter = require("./site");
-const coursesRouter = require("./courses");
-const meRouter = require("./me");
+const coursesRouter = require("./course");
 const apiRouter = require("./api");
+const UserRouter = require("./user");
 
 function route(app) {
-  app.use("/api", apiRouter);
-  app.use("/me", meRouter);
-  app.use("/courses", coursesRouter);
-  app.use("/search", siteRouter);
-
-  app.use("/", meRouter);
+  app.use("/user", UserRouter);
+  // app.use("/api", apiRouter);
+  // app.use("/courses", coursesRouter);
+  // app.use("/", siteRouter);
 }
 
 module.exports = route;

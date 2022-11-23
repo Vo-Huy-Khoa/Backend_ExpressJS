@@ -7,7 +7,7 @@ class CourseController {
     Course.findOne({ slug: req.params.slug })
       .lean()
       .then((course) => {
-        res.render("courses/show", { course });
+        res.render("pages/courses/list", { course });
       })
       .catch(next);
   }
@@ -23,7 +23,7 @@ class CourseController {
 
   //redirect to the page create
   create(req, res, next) {
-    res.render("courses/create");
+    res.render("pages/courses/create");
   }
 
   //store data to database
@@ -47,7 +47,7 @@ class CourseController {
   edit(req, res, next) {
     Course.findById(req.params.id)
       .lean()
-      .then((course) => res.render("courses/edit", { course }))
+      .then((course) => res.render("pages/courses/edit", { course }))
       .catch(next);
   }
 

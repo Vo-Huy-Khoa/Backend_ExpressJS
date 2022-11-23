@@ -1,0 +1,26 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Avatar</th>
+            <th>Slug</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each users}}
+        <tr>
+            <td scope="row">{{sum @index 1}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.email}}</td>
+            <td></td>
+        </tr>
+        {{/each}}
+        <tr>
+            <td scope="row"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

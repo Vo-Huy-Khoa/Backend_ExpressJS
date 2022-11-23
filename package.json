@@ -2,9 +2,11 @@
   "name": "node",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --inspect index.js",
+    "beautiful": "lint-staged",
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,10 +23,30 @@
     "url": "https://github.com/Vo-Huy-Khoa/node/issues"
   },
   "homepage": "https://github.com/Vo-Huy-Khoa/node#readme",
+  "husky": {
+    "hook": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js, json, scss, hbs}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
   "dependencies": {
-    "express": "^4.18.2"
+    "axios": "^1.1.3",
+    "dateformat": "^5.0.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.7.2",
+    "mongoose-slug-generator": "^1.0.4"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.3",
+    "morgan": "^1.10.0",
+    "node-sass": "^8.0.0",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.7.1"
   }
 }
